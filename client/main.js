@@ -44,6 +44,7 @@ const createPokemon = (event) => {
     let body = {
         pokemon: pokemonInput.value,
         name: pokemonName.value
+       
     }
     axios.post("http://localhost:4000/api/pokemon/", body)
     .then( res => {
