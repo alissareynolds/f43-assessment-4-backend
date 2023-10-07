@@ -15,42 +15,49 @@
     <h2>Create Pokemon</h2>
 
     <div class="pokemon-imgs">
-    <img id="evve-icon" src="https://i.pinimg.com/564x/e8/af/34/e8af346519e9f4e57450b4ff25c65e5d.jpg" alt="cute evve pokemon icon">
+    <img id="evve-icon" src="/images/evve.jpg" alt="cute evve pokemon icon">
 
-    <img id="vulpix-icon" src="https://i.pinimg.com/564x/4d/9f/5e/4d9f5e9ad44373eb6a511d777144f560.jpg" alt="cute vulpix pokemon icon">
+    <img id="vulpix-icon" src="/images/vulpix.jpg" alt="cute vulpix pokemon icon">
 
-    <img id="ponyta-icon" src="https://i.pinimg.com/564x/e9/5e/66/e95e66ab439450c7f8acef61f80c478f.jpg" alt="cute ponyta pokemon icon">
+    <img id="ponyta-icon" src="/images/ponyta.jpg" alt="cute ponyta pokemon icon">
 
-    <img id="dragonair-icon" src="https://i.pinimg.com/564x/70/78/67/707867b5ff45cf85c5b2d7c9ffdde592.jpg" alt="cute dragonair pokemon icon">
+    <img id="dragonair-icon" src="/images/dragonair.jpg" alt="cute dragonair pokemon icon">
 
-    <img id="ninetales-icon" src="https://i.pinimg.com/564x/a6/93/96/a69396be0ed77616e8d24c210b0c99c5.jpg" alt="adorable ninetales pokemon icon">
+    <img id="ninetales-icon" src="/images/ninetales.jpg" alt="adorable ninetales pokemon icon">
+
+    <img id="springatto-icon" src="/images/sprigatito.jpg" alt="cute springatto pokemon icon">
     </div>
 
-    <form>
+    <form id="select-form">
       <label for="pokemon-name">Pokemon Name:</label>
       <input id="pokemon-name">
       <label for="pokemon-selector">Choose your Pokemon Type:</label>
       <select id="pokemon-selector">
-        <option value="ponyta">Ponyta</option>
-        <option value="arcanine">Arcanine</option>
-        <option value="growlithe">Growlithe</option>
-        <option value="pidgeotto">Pidgeotto</option>
-        <option value="charmander">Charmander</option>
-        <option value="magnemite">Magnemite</option>
-        <option value="psyduck">Psyduck</option>
-        <option value="rapidash">Rapidash</option>
-        <option value="squirtle">Squirtle</option>
-        <option value="weedle">Weedle</option>
+        <option value="Ponyta">Ponyta</option>
+        <option value="Arcanine">Arcanine</option>
+        <option value="Growlithe">Growlithe</option>
+        <option value="Pidgeotto">Pidgeotto</option>
+        <option value="Charmander">Charmander</option>
+        <option value="Magnemite">Magnemite</option>
+        <option value="Psyduck">Psyduck</option>
+        <option value="Rapidash">Rapidash</option>
+        <option value="Squirtle">Squirtle</option>
+        <option value="Weedle">Weedle</option>
+        <option value="NineTales">Weedle</option>
+        <option value="RockRuff">RockRuff</option>
       </select>
       <label for="health">Health:</label>
       <input id="health">
       <label for="poke-power">Power:</label>
       <input id="poke-power">
       <button id="submit">Submit</button>
-      
+     
+    </form>
+    <form id="list">
+      <ul id="pokemon-list"></ul>
     </form>
     
-    <ul id="pokemon-list"></ul>
+
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="main.js"></script>
  

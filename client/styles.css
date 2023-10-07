@@ -10,17 +10,20 @@ body {
    
 }
    
-form {
+#select-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 200px;
-    padding-right: 200px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    color: rgb(34, 34, 212);
-    border: dotted 5px rgb(161, 79, 216);
+    padding-left: 400px;
+    padding-right: 400px;
+    padding-top: 20px;
+    padding-bottom: 25px;
+    color: rgb(44, 7, 59);
+    border: dotted 5px white;
     margin-top: 15px;
+    background-image: radial-gradient(circle at center, rgb(179, 195, 248), rgb(248, 208, 241));
+    font-style: bold;
+    font-weight: 200px;
 }
 
 .get-buttons {
@@ -63,9 +66,19 @@ form {
     filter: brightness(105%)
 }
 
+#springatto-icon {
+    width: 110px;
+    border: ridge 5px rgb(167, 82, 236);
+    
+}
+
 .pokemon-imgs {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
 
+#list {
+
+
+}

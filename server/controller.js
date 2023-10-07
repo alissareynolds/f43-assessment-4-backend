@@ -1,5 +1,28 @@
-const pokemonList = [];
-let id = 1; 
+const pokemonList = [
+    {
+        "id": 1,
+        "name": "Twilight Sparkle",
+        "pokemon": "Ponyta",
+        "power": 100,
+        "health": 200 
+    },
+    {
+        "id": 2,
+        "name": "Cali",
+        "pokemon": "Growlithe",
+        "power": 10,
+        "health": 50 
+    }, 
+    {
+    "id": 3,
+        "name": "Zoe",
+        "pokemon": "Rockfuff",
+        "power": 20,
+        "health": 50 
+    }
+
+];
+let id = 4; 
 
 module.exports = {
  
@@ -40,6 +63,16 @@ module.exports = {
         pokemonList.push(pokemon);
         id++;
         res.status(201).send(pokemon);
+    },
+    deletePokemon: (req, res) => {
+        let index = pokemonList.findIndex(elem => elem.id === +req.params.id);
+        if (index !== -1){
+          pokemonList.splice(index, 1);
+        }
+        res.status(200);
+    }, 
+    updatePokemon: (req, res) => {
+        
     }
 
 }
