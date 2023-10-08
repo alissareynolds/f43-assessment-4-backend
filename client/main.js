@@ -31,23 +31,51 @@ const displayPokemon = (event) => {
         let pokemonArray = res.data;
         for (let i = 0; i < pokemonArray.length; i++) {
             let pokemon = pokemonArray[i];
-
-            let li = document.createElement('li')
-            li.textContent = `ID: ${pokemon.id},  Name: ${pokemon.name},   Type: ${pokemon.pokemon},   Health: ${pokemon.health},   Power: ${pokemon.power}`;
+            let li = createHtmlForOnePokemon(pokemon);
             pokemonList.appendChild(li);
-            let deleteBtn = document.createElement('button');
-            deleteBtn.textContent = 'Delete'
-            deleteBtn.addEventListener('click', () => {
-                axios.delete(`http://localhost:4000/api/pokemon/${pokemon.id}`).then((res) => {
-                    displayPokemon();
-                })
-            });
-            li.appendChild(deleteBtn);
         }
 
 
     });
 };
+
+const createHtmlForOnePokemon = (pokemon) => {
+    let li = document.createElement('li');
+    li.innerHTML = `
+        Name: <input type="text" id="name-${pokemon.id}" value="${pokemon.name}">
+        <span>Type: ${pokemon.pokemon}</span>
+        <span>Health: ${pokemon.health}</span>
+        <span>Power: ${pokemon.power}</span>
+    `;
+    let updatePokemon = document.createElement('button');
+    updatePokemon.textContent = 'Update'
+    updatePokemon.addEventListener('click', () => {
+        let input = document.getElementById('name-' + pokemon.id);
+
+        let body = {
+            name: input.value,
+            pokemon: pokemon.pokemon,
+            health: pokemon.health,
+            power: pokemon.power
+        }
+
+
+        axios.put(`http://localhost:4000/api/pokemon/${pokemon.id}`, body).then((res) => {
+            displayPokemon();
+        }, body)
+    })
+
+    let deleteBtn = document.createElement('button');
+    deleteBtn.textContent = 'Delete'
+    deleteBtn.addEventListener('click', () => {
+        axios.delete(`http://localhost:4000/api/pokemon/${pokemon.id}`).then((res) => {
+            displayPokemon();
+        })
+    });
+    li.appendChild(deleteBtn);
+    li.appendChild(updatePokemon);
+    return li;
+}
 
 const createPokemon = (event) => {
     event.preventDefault();
@@ -73,17 +101,6 @@ const getInspo = () => {
             alert(data);
         })
 }
-
-const updatePokemon = () => {
-    let body = {
-
-    }
-    axios.put("http://localhost:4000/api/pokemon/", body)
-        .then(res => {
-
-        })
-}
-
 
 fortuneButton.addEventListener('click', getFortune);
 complimentBtn.addEventListener('click', getCompliment);

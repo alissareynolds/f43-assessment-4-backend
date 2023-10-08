@@ -4,48 +4,48 @@ const pokemonList = [
         "name": "Twilight Sparkle",
         "pokemon": "Ponyta",
         "power": 100,
-        "health": 200 
+        "health": 200
     },
     {
         "id": 2,
         "name": "Cali",
         "pokemon": "Growlithe",
         "power": 10,
-        "health": 50 
-    }, 
+        "health": 50
+    },
     {
-    "id": 3,
+        "id": 3,
         "name": "Zoe",
         "pokemon": "Rockfuff",
         "power": 20,
-        "health": 50 
+        "health": 50
     }
 
 ];
-let id = 4; 
+let id = 4;
 
 module.exports = {
- 
+
 
     getCompliment: (req, res) => {
         const compliments = ["Gee, you're a smart cookie!", "Cool shirt!", "Your Javascript skills are stellar."];
-      
+
         // choose random compliment
         let randomIndex = Math.floor(Math.random() * compliments.length);
         let randomCompliment = compliments[randomIndex];
-      
+
         res.status(200).send(randomCompliment);
-    }, 
+    },
     getFortune: (req, res) => {
         const fortunes = ['A new perspective will come with the new year', 'All the effort you are making will ultimately pay off', 'An inch of time is an inch of gold', 'Believe in yourself and others will too', 'Depart not from the path which fate has you assigned', 'Fortune Not Found: Abort, Retry, Ignore?', 'Happiness will bring you good luck', 'Happy life is just in front of you']
 
-       let index = Math.floor(Math.random() * fortunes.length);
-       let randomFortune = fortunes[index];
+        let index = Math.floor(Math.random() * fortunes.length);
+        let randomFortune = fortunes[index];
 
-       res.status(200).send(randomFortune);
-    }, 
+        res.status(200).send(randomFortune);
+    },
     getPokemon: (req, res) => {
-        
+
         res.status(200).send(pokemonList);
 
     },
@@ -66,13 +66,23 @@ module.exports = {
     },
     deletePokemon: (req, res) => {
         let index = pokemonList.findIndex(elem => elem.id === +req.params.id);
-        if (index !== -1){
-          pokemonList.splice(index, 1);
+        if (index !== -1) {
+            pokemonList.splice(index, 1);
         }
         res.status(200);
-    }, 
+    },
     updatePokemon: (req, res) => {
-        
+        let inputPokemon = req.body;
+        let index = pokemonList.findIndex(elem => elem.id === +req.params.id);
+        if (index === -1) {
+            res.status(404);
+            return;
+        }
+        pokemonList[index].name = inputPokemon.name;
+        pokemonList[index].name = pokemon.pokemon;
+        pokemonList[index].name = health.health;
+        pokemonList[index].name = power.power;
+
     }
 
-}
+};

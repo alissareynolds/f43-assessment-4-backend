@@ -33,6 +33,6 @@ app.get("/api/inspiration", getInspiration);
 
 app.delete("/api/pokemon/:id", deletePokemon);
 
-app.put("/api/pokemon", updatePokemon);
+app.put("/api/pokemon/:id", updatePokemon);
 
 app.listen(4000, () => console.log("Server running on 4000"));
